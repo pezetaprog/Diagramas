@@ -1,0 +1,57 @@
+@startuml
+skinparam classAttributeIconSize 0
+skinparam monochrome false
+skinparam packageStyle rect
+skinparam shadowing true
+
+package "modelo" {
+    class RegistroSalarial {
+        - jobTitle : String
+        - experienceYears : int
+        - educationLevel : String
+        - skillsCount : int
+        - industry : String
+        - companySize : String
+        - location : String
+        - remoteWork : String
+        - certifications : int
+        - salary : double
+        
+        + RegistroSalarial(jobTitle: String, experienceYears: int, educationLevel: String, skillsCount: int, industry: String, companySize: String, location: String, remoteWork: String, certifications: int, salary: double)
+        + getJobTitle() : String
+        + getExperienceYears() : int
+        + getEducationLevel() : String
+        + getSkillsCount() : int
+        + getIndustry() : String
+        + getCompanySize() : String
+        + getLocation() : String
+        + getRemoteWork() : String
+        + getCertifications() : int
+        + getSalary() : double
+        + toString() : String
+    }
+}
+
+package "servicio" {
+    class ServicioAnalisisSalarial {
+        - registros : List<RegistroSalarial>
+        
+        + ServicioAnalisisSalarial(rutaArchivo: String)
+        + getRegistros() : List<RegistroSalarial>
+        + ejecutarModulo1() : void
+        + ejecutarModulo2() : void
+        + ejecutarModulo3() : void
+        + ejecutarModulo4() : void
+        + ejecutarModulo5() : void
+        + ejecutarAnalisisEstadistico() : void
+        - imprimirMuestra(titulo: String, predicado: Predicate<RegistroSalarial>) : void
+    }
+}
+
+class Main {
+    + main(args: String[]) : void
+}
+
+ServicioAnalisisSalarial "1" *-- "0..*" RegistroSalarial : contiene
+Main ..> ServicioAnalisisSalarial : utiliza
+@enduml
