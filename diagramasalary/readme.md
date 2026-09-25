@@ -1,0 +1,1 @@
+![Diagrama de Clases](http://www.plantuml.com/plantuml/proxy?src=https://github.com/pezetaprog/Diagramas/blob/main/diagramasalary/diagrama.puml)
